@@ -1,34 +1,12 @@
 package kadai13_01;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-// implements MouseMotionListener, MouseListenerは、2つのマウスのインターフェースを実装
-public class PaintPanel extends JPanel implements MouseMotionListener, MouseListener {
-	private Graphics2D g2d;
-	private Point startPoint = new Point(-1,-1);
-	private Point endPoint = new Point(-1,-1);
-	private Dimension size;
-	
-	public PaintPanel() {
-		super();
-		this.setBackground(Color.WHITE);
-		addMouseMotionListener(this);
-		addMouseListener(this);
-		size = getSize();
-	}
-}
-
+ 
 public class kadai13_01 {
 
 	public static void main(String[] args) {
