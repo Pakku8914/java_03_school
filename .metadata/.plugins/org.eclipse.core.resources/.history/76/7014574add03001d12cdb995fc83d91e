@@ -1,0 +1,12 @@
+package kadai11_01;
+
+import javax.swing.JFrame;
+
+public class kadai11_01 {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		JFrame mainFrame = new JFrame("Kadai11_01 サンプル");
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Ransu.java&apos; to &apos;6_24_kadai02/src/main&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;6_24_kadai&apos;&#x0D;&#x0A;- 宛先要素: &apos;6_24_kadai02/src/main&apos;&#x0D;&#x0A;- オリジナル要素: &apos;report_kadai.Ransu.java&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="コンパイル単位を移動" destination="=6_24_kadai02/src&lt;main" element1="/src&lt;report_kadai{Ransu.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1656048200135" units="1" version="1.0"/>
+</session>
