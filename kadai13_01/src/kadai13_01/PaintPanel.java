@@ -58,9 +58,9 @@ public class PaintPanel extends JPanel implements MouseMotionListener, MouseList
 	// エラーの可能性あり
 	public void clearComponent()
 	{
-		Graphics2D g = (Graphics2D)getGraphics();
-		g.clearRect(0,0,getWidth(), getHeight());
-		g.dispose();
+		g2d = (Graphics2D)getGraphics();
+		g2d.clearRect(0,0,getWidth(), getHeight());
+		g2d.dispose();
 	}
 
 	// MouseListenerに含まれるメソッド
