@@ -7,7 +7,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -19,9 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class main {
     static int w = 800, h = 600;
@@ -58,16 +57,20 @@ public class main {
         clear.addActionListener(new ClearListener(canvas));
         paneB.add(clear);
 
-        // 線の太さ調節
-        JSlider slider = new JSlider(1, 50, 1); // 最小値、最大値、初期値
-        slider.addChangeListener(new SliderListener(canvas)); // 割り込み処理用
-        paneB.add(slider);
-
         // 線の色変更
         String[] combodata = { "BLACK", "RED", "BLUE", "GREEN" };
         JComboBox combo = new JComboBox(combodata);
         combo.addActionListener(new ComboListener(canvas));
         paneB.add(combo);
+        
+        // ボタンの表示
+        JButton buttonA = new JButton("A");
+        buttonA.addActionListener(new ButtonA());
+        JButton buttonB = new JButton("B");
+        JButton buttonC = new JButton("C");
+        paneB.add(buttonA);
+        paneB.add(buttonB);
+        paneB.add(buttonC);
 
         // ウィンドウを表示
         frame.setVisible(true);
@@ -87,7 +90,7 @@ public class main {
         // 描画モードＯＲ消しゴムモード
         private int type;
         // 線の太さ
-        public int width = 1;
+        public int width = 3;
         // 線の色
         public Color c = Color.black;
 
@@ -121,11 +124,6 @@ public class main {
             g2d.setColor(Color.WHITE);
             g2d.fillRect(0, 0, w, h);
             repaint();
-        }
-
-        // 線の太さ変更
-        public void setStroke(int n) {
-            width = n;
         }
 
         // 線の色変更
@@ -247,24 +245,6 @@ public class main {
 
     }
 
-    // スライダー用
-    static class SliderListener implements ChangeListener {
-
-        PaintCanvas canvas;
-
-        public SliderListener(PaintCanvas canvas) {
-            super();
-            this.canvas = canvas;
-        }
-
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            JSlider source = (JSlider) e.getSource();
-            int fps = (int) source.getValue();
-            canvas.setStroke(fps);
-        }
-
-    }
 
     // コンボボックス用
     static class ComboListener implements ActionListener {
@@ -283,6 +263,27 @@ public class main {
             canvas.setColorCombo(color);
         }
 
+    }
+    
+    // ボタンA用
+    static class ButtonA implements ActionListener {
+    	@Override
+    	public void actionPerformed(ActionEvent e) {
+    		// JFrameクラスのインスタンスを作成
+    		JFrame imageFrame = new JFrame("buttonA_image");
+    		// 閉じるボタンを押したときの振る舞いを決定
+        	imageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        	// ウィンドウ幅を設定
+        	imageFrame.setSize(500,500);
+        	// ウィンドウの表示場所を規定
+        	imageFrame.setLocationRelativeTo(null);
+        	Image img = Toolkit.getDefaultToolkit().getImage("buttonA.png");
+        	
+        	
+        	
+        	// ウィンドウの表示
+        	imageFrame.setVisible(true);
+    	}
     }
 
 }
